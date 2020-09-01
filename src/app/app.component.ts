@@ -67,10 +67,19 @@ export class AppComponent {
       .filter(x => !x.pickedUp).length;
   }
 
+  // returns the pickedup/outstanding items in the list
+  // if the checkbox is selected, show the items that have been picked up and not picked up
+  get pickedUpOutstandingitemList(): readonly Item[] {
+    return this.list.allItems.filter(x => this.showComplete || !x.pickedUp)
+  }
+
   // add an item to the list
   addItem(newItem) {
     if (newItem != "") {
       this.list.addItem(newItem);
     }
   }
+
+  // set the check box to selected by default
+  showComplete: boolean = true;
 }

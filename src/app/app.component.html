@@ -31,7 +31,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let item of itemList; let i = index">
+    <tr *ngFor="let item of pickedUpOutstandingitemList; let i = index">
       <td>{{ i + 1 }}</td>
       <td>{{ item.name }}</td>
       <td [ngSwitch]="item.pickedUp">
@@ -42,3 +42,6 @@
     </tr>
   </tbody>
 </table>
+
+<input type="checkbox" [(ngModel)]="showComplete" />
+<label>Show picked up items</label>
