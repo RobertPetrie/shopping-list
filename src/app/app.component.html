@@ -12,6 +12,7 @@
 </h2>
 
 <table>
+  <caption>Need to pick up</caption>
   <thead>
     <tr>
       <th>#</th>
@@ -21,7 +22,30 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let item of itemList; let i = index">
+    <tr *ngFor="let item of outstandingItemList; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ item.name }}</td>
+      <td [ngSwitch]="item.pickedUp">
+        <span *ngSwitchCase="true">Yes</span>
+        <span *ngSwitchDefault>No</span>
+      </td>
+      <td><input type="checkbox" [(ngModel)]="item.pickedUp" /></td>
+    </tr>
+  </tbody>
+</table>
+<br />
+<table>
+  <caption>Picked up</caption>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Item Name</th>
+      <th>Picked Up</th>
+      <th>Pick Up</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of pickedUpItemList; let i = index">
       <td>{{ i + 1 }}</td>
       <td>{{ item.name }}</td>
       <td [ngSwitch]="item.pickedUp">
