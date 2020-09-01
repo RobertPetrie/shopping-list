@@ -66,4 +66,11 @@ export class AppComponent {
     return this.list.allItems
       .filter(x => !x.pickedUp).length;
   }
+
+  // add an item to the list
+  addItem(newItem) {
+    if (newItem != "") {
+      this.list.addItem(newItem);
+    }
+  }
 }
