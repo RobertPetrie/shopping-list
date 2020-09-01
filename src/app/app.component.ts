@@ -40,6 +40,16 @@ export class AppComponent {
     return this.list.allItems;
   }
 
+  // returns the items that have been picked up
+  get pickedUpItemList(): readonly Item[] {
+    return this.list.allItems.filter(x => x.pickedUp);
+  }
+
+  // returns the items that haven't been picked up
+  get outstandingItemList(): readonly Item[] {
+    return this.list.allItems.filter(x => !x.pickedUp);
+  }
+
   // returns the number of items
   get totalItems(): number {
     return this.list.allItems.length;
